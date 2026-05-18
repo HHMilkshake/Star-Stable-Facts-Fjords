@@ -1,22 +1,214 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<title>SSO Fjording 🐴</title>
+
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: linear-gradient(#e9f1ff, white);
+    text-align: center;
+}
+
+header {
+    background: #6a4cff;
+    color: white;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    margin: 20px auto;
+    padding: 15px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    background: #6a4cff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4b33cc;
+}
+
+#favArea {
+    margin-top: 15px;
+}
+
+.q {
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🐴 Star Stable Fjording</h1>
+<p>Fakta, rumpe-galleri og quiz 😭💜</p>
+</header>
+
+<!-- FAKTA -->
 <div class="card">
-<h2>📖 Litt meir om fjording</h2>
-
+<h2>📖 Fakta</h2>
 <p>
-Fjording (Norwegian Fjord Horse) er ein av dei eldste og mest kjende hesterasane frå Norge.  
-Han har blitt brukt i hundrevis av år som arbeids- og ridehest i fjell og på gardar, fordi han er sterk, trygg og veldig stødig på beina.
-</p>
-
-<p>
-Eit av dei mest spesielle kjenneteikna er manen, som ofte blir klipt slik at den står rett opp i ein lys og mørk stripe.  
-Dette gjer at fjordingen ser veldig unik ut samanlikna med mange andre hesterasar.
-</p>
-
-<p>
-I dag blir fjordingar brukt til mykje forskjellig: tur-riding, dressur, køyring med vogn og som ein trygg familiehest.  
-Dei er spesielt populære fordi dei ofte har eit roleg hovud og er enkle å samarbeide med.
-</p>
-
-<p>
-I spel som Star Stable Online er fjordingen ein favoritt fordi han kombinerer “cute look” med stabil og trygg oppførsel i spelverda.
+Fjording er ein sterk, roleg norsk hesterase.  
+Han er kjend for sin karakteristiske man og sitt snille temperament, og blir brukt til både tur, arbeid og riding.
 </p>
 </div>
+
+<!-- RUMPE GALLERI (safe horse images) -->
+<div class="card">
+<h2>🐴 Galleri</h2>
+
+<div class="row">
+<img src="https://source.unsplash.com/featured/?fjord%20horse%20back" alt="fjord horse">
+<img src="https://source.unsplash.com/featured/?horse%20fjord%20tail" alt="fjord horse">
+<img src="https://source.unsplash.com/featured/?horse%20pasture" alt="fjord horse">
+</div>
+
+<p>Fjordingar i naturen 🐴✨</p>
+</div>
+
+<!-- FAVORITT -->
+<div class="card">
+<h2>💜 Velg favoritt fjord-farge</h2>
+
+<button onclick="choose('Brunblakk')">Brunblakk</button>
+<button onclick="choose('Grå')">Grå</button>
+<button onclick="choose('Rødblakk')">Rødblakk</button>
+<button onclick="choose('Gulblakk')">Gulblakk</button>
+<button onclick="choose('Kvit')">Kvit</button>
+
+<div id="favArea"></div>
+</div>
+
+<!-- QUIZ -->
+<div class="card">
+<h2>🐴 Fjording Quiz (10 spørsmål)</h2>
+
+<div class="q">
+<p>1. Kvar kjem fjording frå?</p>
+<button onclick="a(this,'r1')">Norge</button>
+<button onclick="a(this,'w1')">Sverige</button>
+<p id="r1"></p>
+</div>
+
+<div class="q">
+<p>2. Kva er fjording kjent for?</p>
+<button onclick="a(this,'r2')">Rolig temperament</button>
+<button onclick="a(this,'w2')">Å vere aggressiv</button>
+<p id="r2"></p>
+</div>
+
+<div class="q">
+<p>3. Fjording blir ofte brukt til?</p>
+<button onclick="a(this,'r3')">Tur og allround riding</button>
+<button onclick="a(this,'w3')">Kun racing</button>
+<p id="r3"></p>
+</div>
+
+<div class="q">
+<p>4. Fjording har ofte kva type man?</p>
+<button onclick="a(this,'r4')">Ståande man</button>
+<button onclick="a(this,'w4')">Krøllete man som puddel</button>
+<p id="r4"></p>
+</div>
+
+<div class="q">
+<p>5. Er fjording ein sterk hest?</p>
+<button onclick="a(this,'r5')">Ja</button>
+<button onclick="a(this,'w5')">Nei</button>
+<p id="r5"></p>
+</div>
+
+<div class="q">
+<p>6. Kva miljø kjem fjording frå?</p>
+<button onclick="a(this,'r6')">Fjell og natur</button>
+<button onclick="a(this,'w6')">Ørken</button>
+<p id="r6"></p>
+</div>
+
+<div class="q">
+<p>7. Fjording er mest kjent for å vere?</p>
+<button onclick="a(this,'r7')">Trygg</button>
+<button onclick="a(this,'w7')">Farlig</button>
+<p id="r7"></p>
+</div>
+
+<div class="q">
+<p>8. I SSO er fjording?</p>
+<button onclick="a(this,'r8')">Ein populær rase</button>
+<button onclick="a(this,'w8')">Ikkje i spelet</button>
+<p id="r8"></p>
+</div>
+
+<div class="q">
+<p>9. Fjording blir brukt til?</p>
+<button onclick="a(this,'r9')">Mange ting</button>
+<button onclick="a(this,'w9')">Berre hopping</button>
+<p id="r9"></p>
+</div>
+
+<div class="q">
+<p>10. Fjording kjem frå?</p>
+<button onclick="a(this,'r10')">Norge 🇳🇴</button>
+<button onclick="a(this,'w10')">Island</button>
+<p id="r10"></p>
+</div>
+
+</div>
+
+<script>
+
+function choose(color){
+    document.getElementById("favArea").innerHTML = `
+        <h3>💜 Du valde: ${color}</h3>
+        <img src="https://source.unsplash.com/featured/?fjord%20horse" alt="fjording">
+        <p>Del med din beste venn 🐴✨</p>
+    `;
+}
+
+function a(btn,id){
+    if(btn.textContent.includes("Norge") ||
+       btn.textContent.includes("Rolig") ||
+       btn.textContent.includes("Tur") ||
+       btn.textContent.includes("Ståande") ||
+       btn.textContent.includes("Ja") ||
+       btn.textContent.includes("Fjell") ||
+       btn.textContent.includes("Trygg") ||
+       btn.textContent.includes("populær") ||
+       btn.textContent.includes("Mange") ||
+       btn.textContent.includes("🇳🇴")){
+        document.getElementById(id).innerHTML = "Riktig!! 🐴💜";
+    } else {
+        document.getElementById(id).innerHTML = "Feil 😭 prøv igjen!";
+    }
+}
+
+</script>
+
+</body>
+</html>
