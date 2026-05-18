@@ -1,56 +1,135 @@
-<script>
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<title>SSO Fjording 🐴</title>
 
-let score = 0;
-let done = {};
-
-// 🔊 riktig lyd
-function playSound(){
-    let audio = new Audio("https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg");
-    audio.play();
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: linear-gradient(#e9f1ff, white);
+    text-align: center;
 }
 
-function q(num, correct){
-    if(done[num]) return;
-
-    if(correct){
-        score++;
-        document.getElementById("r"+num).innerHTML = "Riktig!! 🐴💜";
-        playSound(); // 🔊 LYD HER
-    } else {
-        document.getElementById("r"+num).innerHTML = "Feil 😭";
-    }
-
-    done[num] = true;
-
-    document.getElementById("scoreBox").innerHTML =
-    "Score: " + score + " / 10";
-
-    fanRank();
+header {
+    background: #6a4cff;
+    color: white;
+    padding: 20px;
 }
 
-function fanRank(){
-    let text = "";
-
-    if(score <= 3){
-        text = "🐴 Ny fjording fan";
-    } else if(score <= 6){
-        text = "💜 Good fjording fan";
-    } else if(score <= 9){
-        text = "🔥 Pro fjording fan";
-    } else {
-        text = "👑 LEGENDARY FJORDING MASTER";
-    }
-
-    document.getElementById("scoreBox").innerHTML =
-    "Score: " + score + " / 10 — " + text;
+.card {
+    background: white;
+    margin: 20px auto;
+    padding: 15px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-function choose(color){
-    document.getElementById("favArea").innerHTML = `
-        <h3>💜 Du valde: ${color}</h3>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Norwegian_Fjord_horse.jpg">
-        <p>Del med din beste venn 🐴✨</p>
-    `;
+img {
+    width: 100%;
+    border-radius: 12px;
 }
 
-</script>
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    background: #6a4cff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4b33cc;
+}
+
+#favArea {
+    margin-top: 15px;
+}
+
+.q {
+    margin-top: 10px;
+}
+
+#scoreBox {
+    font-size: 20px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🐴 Star Stable Fjording</h1>
+<p>Fakta, galleri, favoritt og quiz 💜</p>
+</header>
+
+<!-- FAKTA -->
+<div class="card">
+<h2>📖 Fakta</h2>
+<p>
+Fjording er ein norsk hesterase kjent for styrke, ro og unik man.  
+Han blir brukt til riding, tur og arbeid. I Star Stable er han ein av dei mest populære rasane.
+</p>
+</div>
+
+<!-- BILDER -->
+<div class="card">
+<h2>📸 Galleri</h2>
+
+<div class="row">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Norwegian_Fjord_horse.jpg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Norwegian_Fjord_horse_2.jpg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Norwegian_fjord_horse_profile.jpg">
+</div>
+
+<p>Fjording i naturen 🐴✨</p>
+</div>
+
+<!-- FAVORITT -->
+<div class="card">
+<h2>💜 Velg favoritt fjord-farge</h2>
+
+<button onclick="choose('Brunblakk')">Brunblakk</button>
+<button onclick="choose('Grå')">Grå</button>
+<button onclick="choose('Rødblakk')">Rødblakk</button>
+<button onclick="choose('Gulblakk')">Gulblakk</button>
+<button onclick="choose('Kvit')">Kvit</button>
+
+<div id="favArea"></div>
+</div>
+
+<!-- QUIZ -->
+<div class="card">
+<h2>🐴 Fjording Quiz</h2>
+
+<p id="scoreBox">Score: 0 / 10</p>
+
+<div class="q">
+<p>1. Kvar kjem fjording frå?</p>
+<button onclick="q(1,true)">Norge</button>
+<button onclick="q(1,false)">Sverige</button>
+<p id="r1"></p>
+</div>
+
+<div class="q">
+<p>2. Fjording er kjent for?</p>
+<button onclick="q(2,true)">Rolig temperament</button>
+<button onclick="q(2,false)">Aggressiv</button>
+<p id="r2"></p>
+</div>
+
+<div class="q">
+<p>3. Fjording blir brukt til?</p>
+<button
