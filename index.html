@@ -33,12 +33,6 @@ img {
     border-radius: 12px;
 }
 
-.colors {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 10px;
-}
-
 button {
     padding: 10px;
     margin: 5px;
@@ -52,6 +46,10 @@ button {
 button:hover {
     background: #4b33cc;
 }
+
+#favArea {
+    margin-top: 15px;
+}
 </style>
 </head>
 
@@ -59,97 +57,84 @@ button:hover {
 
 <header>
 <h1>🐴 Star Stable Fjording</h1>
-<p>Fakta, fargar og quiz!</p>
+<p>Fakta, quiz og fjord-magi ✨</p>
 </header>
+
+<!-- BILDE -->
+<div class="card">
+<h2>📸 Fjording</h2>
+<img src="https://source.unsplash.com/featured/?fjord%20horse" alt="Fjord horse">
+<p>Ein vakker norsk fjording 🐴💜</p>
+</div>
 
 <!-- FAKTA -->
 <div class="card">
 <h2>🌿 Fakta</h2>
 <p>
-Fjording er ein norsk hesterase kjent for styrke, ro og den karakteristiske manen.
-I Star Stable Online er den super populær!
+Fjording er ein sterk, roleg norsk hest.  
+I Star Stable blir han brukt til både riding, kos og adventure!
 </p>
-</div>
-
-<!-- FARGER -->
-<div class="card">
-<h2>🎨 SSO Fjording fargar</h2>
-
-<div class="colors">
-
-<div>
-<h3>Brunblakk</h3>
-<img src="https://static.wikia.nocookie.net/starstable/images/2/2a/Fjord_brown_dapple.png">
-</div>
-
-<div>
-<h3>Grå</h3>
-<img src="https://static.wikia.nocookie.net/starstable/images/8/8a/Fjord_grey.png">
-</div>
-
-<div>
-<h3>Rødblakk</h3>
-<img src="https://static.wikia.nocookie.net/starstable/images/6/6f/Fjord_red_dun.png">
-</div>
-
-<div>
-<h3>Gulblakk</h3>
-<img src="https://static.wikia.nocookie.net/starstable/images/1/1f/Fjord_yellow_dun.png">
-</div>
-
-<div>
-<h3>Kvit</h3>
-<img src="https://static.wikia.nocookie.net/starstable/images/9/9d/Fjord_white.png">
-</div>
-
-</div>
 </div>
 
 <!-- FAVORITT -->
 <div class="card">
-<h2>💜 Velg din favoritt</h2>
-
-<p id="favText">Ingen valgt enda 😭</p>
+<h2>💜 Velg favoritt fjord-farge</h2>
 
 <button onclick="choose('Brunblakk')">Brunblakk</button>
 <button onclick="choose('Grå')">Grå</button>
 <button onclick="choose('Rødblakk')">Rødblakk</button>
 <button onclick="choose('Gulblakk')">Gulblakk</button>
 <button onclick="choose('Kvit')">Kvit</button>
+
+<div id="favArea"></div>
 </div>
 
 <!-- QUIZ -->
 <div class="card">
 <h2>🐴 Fjording Quiz</h2>
 
-<p>1. Kvar kjem fjording frå?</p>
-<button onclick="q1(false)">Sverige</button>
+<p><b>1. Kvar kjem fjording frå?</b></p>
 <button onclick="q1(true)">Norge</button>
+<button onclick="q1(false)">Sverige</button>
+<p id="q1"></p>
 
-<p id="quiz1"></p>
+<p><b>2. Kva blir fjordingar mest brukt til?</b></p>
+<button onclick="q2(true)">Allround riding / tur / kos</button>
+<button onclick="q2(false)">Kun racing</button>
+<p id="q2"></p>
 
-<p>2. Kva er fjording kjent for?</p>
-<button onclick="q2(true)">Sterk og roleg</button>
-<button onclick="q2(false)">Super rask racing-hest</button>
+<p><b>3. Kva er fjording kjent for?</b></p>
+<button onclick="q3(true)">Rolig temperament</button>
+<button onclick="q3(false)">Å vere aggressiv</button>
+<p id="q3"></p>
 
-<p id="quiz2"></p>
 </div>
 
 <script>
+
 function choose(color){
-    document.getElementById("favText").innerHTML =
-    "Du valde: 💜 " + color;
+    document.getElementById("favArea").innerHTML = `
+        <h3>💜 Du valde: ${color}</h3>
+        <img src="https://source.unsplash.com/featured/?fjord%20horse" alt="fjording">
+        <p>Del med din beste venn 🐴✨</p>
+    `;
 }
 
 function q1(ans){
-    document.getElementById("quiz1").innerHTML =
+    document.getElementById("q1").innerHTML =
     ans ? "Riktig!! 🇳🇴🐴" : "Feil 😭 det er Norge!";
 }
 
 function q2(ans){
-    document.getElementById("quiz2").innerHTML =
-    ans ? "Riktig!! 💪🐴" : "Nei 😭 fjording er roleg hest!";
+    document.getElementById("q2").innerHTML =
+    ans ? "Ja!! fjording er allround hest 💜" : "Nei 😭 dei blir ikkje berre brukt til racing!";
 }
+
+function q3(ans){
+    document.getElementById("q3").innerHTML =
+    ans ? "Riktig!! dei er kjente for å vere rolige 🐴" : "Nei 😭 dei er faktisk veldig snille!";
+}
+
 </script>
 
 </body>
