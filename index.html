@@ -1,141 +1,22 @@
-<!DOCTYPE html>
-<html lang="no">
-<head>
-<meta charset="UTF-8">
-<title>SSO Fjording 🐴</title>
-
-<style>
-body {
-    font-family: Arial;
-    margin: 0;
-    background: linear-gradient(#e9f1ff, white);
-    text-align: center;
-}
-
-header {
-    background: #6a4cff;
-    color: white;
-    padding: 20px;
-}
-
-.card {
-    background: white;
-    margin: 20px auto;
-    padding: 15px;
-    width: 85%;
-    max-width: 750px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-img {
-    width: 100%;
-    border-radius: 12px;
-}
-
-button {
-    padding: 10px;
-    margin: 5px;
-    border: none;
-    border-radius: 10px;
-    background: #6a4cff;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #4b33cc;
-}
-
-#favArea {
-    margin-top: 15px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<h1>🐴 Star Stable Fjording</h1>
-<p>Fakta, quiz og fjord-magi ✨</p>
-</header>
-
-<!-- BILDE -->
 <div class="card">
-<h2>📸 Fjording</h2>
-<img src="https://source.unsplash.com/featured/?fjord%20horse" alt="Fjord horse">
-<p>Ein vakker norsk fjording 🐴💜</p>
-</div>
+<h2>📖 Litt meir om fjording</h2>
 
-<!-- FAKTA -->
-<div class="card">
-<h2>🌿 Fakta</h2>
 <p>
-Fjording er ein sterk, roleg norsk hest.  
-I Star Stable blir han brukt til både riding, kos og adventure!
+Fjording (Norwegian Fjord Horse) er ein av dei eldste og mest kjende hesterasane frå Norge.  
+Han har blitt brukt i hundrevis av år som arbeids- og ridehest i fjell og på gardar, fordi han er sterk, trygg og veldig stødig på beina.
+</p>
+
+<p>
+Eit av dei mest spesielle kjenneteikna er manen, som ofte blir klipt slik at den står rett opp i ein lys og mørk stripe.  
+Dette gjer at fjordingen ser veldig unik ut samanlikna med mange andre hesterasar.
+</p>
+
+<p>
+I dag blir fjordingar brukt til mykje forskjellig: tur-riding, dressur, køyring med vogn og som ein trygg familiehest.  
+Dei er spesielt populære fordi dei ofte har eit roleg hovud og er enkle å samarbeide med.
+</p>
+
+<p>
+I spel som Star Stable Online er fjordingen ein favoritt fordi han kombinerer “cute look” med stabil og trygg oppførsel i spelverda.
 </p>
 </div>
-
-<!-- FAVORITT -->
-<div class="card">
-<h2>💜 Velg favoritt fjord-farge</h2>
-
-<button onclick="choose('Brunblakk')">Brunblakk</button>
-<button onclick="choose('Grå')">Grå</button>
-<button onclick="choose('Rødblakk')">Rødblakk</button>
-<button onclick="choose('Gulblakk')">Gulblakk</button>
-<button onclick="choose('Kvit')">Kvit</button>
-
-<div id="favArea"></div>
-</div>
-
-<!-- QUIZ -->
-<div class="card">
-<h2>🐴 Fjording Quiz</h2>
-
-<p><b>1. Kvar kjem fjording frå?</b></p>
-<button onclick="q1(true)">Norge</button>
-<button onclick="q1(false)">Sverige</button>
-<p id="q1"></p>
-
-<p><b>2. Kva blir fjordingar mest brukt til?</b></p>
-<button onclick="q2(true)">Allround riding / tur / kos</button>
-<button onclick="q2(false)">Kun racing</button>
-<p id="q2"></p>
-
-<p><b>3. Kva er fjording kjent for?</b></p>
-<button onclick="q3(true)">Rolig temperament</button>
-<button onclick="q3(false)">Å vere aggressiv</button>
-<p id="q3"></p>
-
-</div>
-
-<script>
-
-function choose(color){
-    document.getElementById("favArea").innerHTML = `
-        <h3>💜 Du valde: ${color}</h3>
-        <img src="https://source.unsplash.com/featured/?fjord%20horse" alt="fjording">
-        <p>Del med din beste venn 🐴✨</p>
-    `;
-}
-
-function q1(ans){
-    document.getElementById("q1").innerHTML =
-    ans ? "Riktig!! 🇳🇴🐴" : "Feil 😭 det er Norge!";
-}
-
-function q2(ans){
-    document.getElementById("q2").innerHTML =
-    ans ? "Ja!! fjording er allround hest 💜" : "Nei 😭 dei blir ikkje berre brukt til racing!";
-}
-
-function q3(ans){
-    document.getElementById("q3").innerHTML =
-    ans ? "Riktig!! dei er kjente for å vere rolige 🐴" : "Nei 😭 dei er faktisk veldig snille!";
-}
-
-</script>
-
-</body>
-</html>
